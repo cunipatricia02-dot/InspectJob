@@ -1,0 +1,87 @@
+### Register Inspector (UK)
+POST http://localhost:8000/api/register
+Content-Type: application/json
+
+{
+  "email": "test.uk@example.com",
+  "password": "password123",
+  "name": "Test UK Inspector",
+  "location": "UK"
+}
+
+###
+
+### Register Inspector (Mexico)
+POST http://localhost:8000/api/register
+Content-Type: application/json
+
+{
+  "email": "test.mexico@example.com",
+  "password": "password123",
+  "name": "Test Mexico Inspector",
+  "location": "MEXICO"
+}
+
+###
+
+### Register Inspector (India)
+POST http://localhost:8000/api/register
+Content-Type: application/json
+
+{
+  "email": "test.india@example.com",
+  "password": "password123",
+  "name": "Test India Inspector",
+  "location": "INDIA"
+}
+
+###
+
+### Login
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+  "email": "test.uk@example.com",
+  "password": "password123"
+}
+
+###
+
+### List Jobs (requires token from login)
+GET http://localhost:8000/api/jobs
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+
+### Create Job
+POST http://localhost:8000/api/jobs
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "title": "Building Inspection",
+  "description": "Comprehensive building safety inspection"
+}
+
+###
+
+### Assign Job (replace 1 with actual job ID)
+POST http://localhost:8000/api/jobs/1/assign
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "scheduled_at": "2026-02-20 14:00"
+}
+
+###
+
+### Complete Job (replace 1 with actual job ID)
+PATCH http://localhost:8000/api/jobs/1/complete
+Authorization: Bearer YOUR_TOKEN_HERE
+Content-Type: application/json
+
+{
+  "assessment": "Building structure is sound. Minor repairs needed on north wall. All safety requirements met."
+}
